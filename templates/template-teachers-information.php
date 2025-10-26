@@ -34,7 +34,7 @@
 
                             </div>
                             <div class="card-body">
-                                <h6> নাম : এস এ ফারুক </h6>
+                                <h6> <?php the_title(); ?> </h6>
                                 <h6> পদবি : সহকারী শিক্ষক </h6>
                             </div>
                         </div>

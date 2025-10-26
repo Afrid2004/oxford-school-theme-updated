@@ -162,11 +162,11 @@
                                         $alt_text = get_post_meta($thumb_id, '_wp_attachment_image_alt', true);
                                         if (has_post_thumbnail()) {
                                             the_post_thumbnail('news-and-event-image-420x250', array(
-                                                'class' => 'img-fluid mb-md-2 mb-1',
+                                                'class' => 'img-fluid mb-md-2 mb-1 w-100',
                                                 'alt'   => $alt_text ? esc_attr($alt_text) : esc_attr(get_the_title())
                                             ));
                                         } else { ?>
-                                            <img src="<?php echo get_template_directory_uri() . '/assets/images/news-and-event-image-420x250.jpg' ?>" alt="<?php echo $alt_text ? esc_attr($alt_text) : esc_attr(get_the_title()); ?>" class="mb-md-2 mb-1 img-fluid">
+                                            <img src="<?php echo get_template_directory_uri() . '/assets/images/news-and-event-image-420x250.jpg' ?>" alt="<?php echo $alt_text ? esc_attr($alt_text) : esc_attr(get_the_title()); ?>" class="mb-md-2 mb-1 img-fluid w-100">
                                         <?php } ?>
 
                                         <h5 class="text-dark"> <?php the_title(); ?> </h5>
