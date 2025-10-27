@@ -18,7 +18,7 @@
       'public'              => true,
       'menu_icon'           => 'dashicons-awards',
       'has_archive'         => true,
-      'rewrite'             => array('slug' => 'founder-story'),
+      'rewrite'             => array('slug' => 'achieve-and-success'),
       'menu_position'       => 33,
       'publicly_queryable'  => true,
       'query_var'           => true,

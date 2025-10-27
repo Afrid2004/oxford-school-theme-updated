@@ -73,7 +73,12 @@ if (file_exists(get_template_directory() . '/includes/post-type/important-link-p
     include_once('includes/post-type/important-link-post-type.php');
 }
 
-//for tgm
+//for achieve and success 
 if (file_exists(get_template_directory() . '/includes/post-type/achieve-and-success-post-type.php')) {
     include_once('includes/post-type/achieve-and-success-post-type.php');
+}
+
+//for mission and vision 
+if (file_exists(get_template_directory() . '/includes/post-type/mission-and-vision-post-type.php')) {
+    include_once('includes/post-type/mission-and-vision-post-type.php');
 }
