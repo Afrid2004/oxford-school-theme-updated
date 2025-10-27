@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-8 col-12 mb-3">
                 <div class="top-title bg-info text-center text-light py-1 mb-2">
-                    <p class="mb-0"> ফটো গ্যালারি </p>
+                    <p class="mb-0"> সব ছবি </p>
                 </div>
                 <div class="all-photos mt-3">
                     <div class="gallery-wrap">

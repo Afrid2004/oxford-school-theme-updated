@@ -34,7 +34,12 @@
                                 </div>
                                 <div>
                                     <p class="mb-0 fs-4 text-info"><?php echo get_field('headmaster_name') ?></p>
-                                    <p class="mb-0">প্রতিষ্ঠাতা</p>
+                                    <p class="mb-0">
+                                        প্রতিষ্ঠাতা, <?php
+                                        $school_name =  get_theme_mod('name-of-school', 'জিয়া ভাই উচ্চ বিদ্যালয়');
+                                        echo $school_name;
+                                        ?>।
+                                    </p>
                                     <p class="mb-0">মোবাইলঃ <?php echo get_field('head_master_mobile_number') ?></p>
                                 </div>
                             

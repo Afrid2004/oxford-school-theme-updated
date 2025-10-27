@@ -44,9 +44,6 @@ require_once get_template_directory() . '/includes/post-type/founder-story-post-
 //english-to-bangla-date
 require_once get_template_directory() . '/includes/helpers/english-to-bangla-date.php';
 
-//important-link-post-type
-require_once get_template_directory() . '/includes/post-type/important-link-post-type.php';
-
 //for creating auto pages
 require_once get_template_directory() . '/includes/helpers/after-switch-theme.php';
 
@@ -69,4 +66,14 @@ if (file_exists(get_template_directory() . '/includes/post-type/teachers-informa
 //for tgm
 if (file_exists(get_template_directory() . '/includes/helpers/enter-title-name.php')) {
     include_once('includes/helpers/enter-title-name.php');
+}
+
+//for important link post type
+if (file_exists(get_template_directory() . '/includes/post-type/important-link-post-type.php')) {
+    include_once('includes/post-type/important-link-post-type.php');
+}
+
+//for tgm
+if (file_exists(get_template_directory() . '/includes/post-type/achieve-and-success-post-type.php')) {
+    include_once('includes/post-type/achieve-and-success-post-type.php');
 }

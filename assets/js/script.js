@@ -58,8 +58,3 @@ swiperEl.addEventListener('mouseleave', () => {
 
 
 
-
-
-
-
-

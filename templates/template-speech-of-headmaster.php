@@ -70,7 +70,7 @@
                         <div class="card-list swiper-wrapper" id="lightGallery">
                             <?php
                             $gallery = new WP_Query(array(
-                                'post_type'         =>  'gallery',
+                                'post_type'         =>  'photo_gallery',
                                 'order'             => 'ASC'
                             ));
                             while ($gallery->have_posts()): $gallery->the_post();
