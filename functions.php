@@ -21,7 +21,7 @@ include_once get_template_directory() . '/includes/helpers/add-class-primary-men
 include_once get_template_directory() . '/includes/helpers/class-wp-bootstrap-5.3.7-navwalker.php';
 
 //committee
-require_once get_template_directory() . '/includes/helpers/committee-post-type.php';
+require_once get_template_directory() . '/includes/post-type/committee-post-type.php';
 
 //gallery
 require_once get_template_directory() . '/includes/post-type/photo-gallery-post-type.php';
