@@ -118,11 +118,17 @@ body {
 }
 
 .bg-info {
+    color: white;
     background-color: #1296b1 !important;
 }
 
 .text-info {
     color: #1296b1 !important;
+}
+
+.bg-text-info:hover {
+    background-color: #0e758a !important;
+    color: white !important;
 }
 
 .swiper {
@@ -342,6 +348,12 @@ body {
 iframe {
     height: 200px !important;
     max-height: 200px !important;
+}
+
+.single-iframe {
+    width: 100% !important;
+    height: 800px !important;
+    max-height: 800px !important;
 }
 
 .not-found-font-size {

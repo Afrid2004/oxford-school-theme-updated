@@ -87,3 +87,6 @@ if (file_exists(get_template_directory() . '/includes/post-type/mission-and-visi
 if (file_exists(get_template_directory() . '/includes/post-type/governing-post-type.php')) {
     include_once('includes/post-type/mission-and-vision-post-type.php');
 }
+
+
+

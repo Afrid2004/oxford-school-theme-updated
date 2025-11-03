@@ -6,8 +6,10 @@
     <div class="row pb-5">
         <div class="col-md-8">
             <?php
-            if (have_posts()) : while (have_posts()) : the_post();
-            ?>
+            if (have_posts()):
+                while (have_posts()):
+                    the_post();
+                    ?>
 
                     <div class="page-img mb-3">
                         <?php
@@ -16,7 +18,7 @@
                         if (has_post_thumbnail()) {
                             the_post_thumbnail('large', array(
                                 'class' => 'img-fluid w-100',
-                                'alt'   => $alt_text ? esc_attr($alt_text) : esc_attr(get_the_title())
+                                'alt' => $alt_text ? esc_attr($alt_text) : esc_attr(get_the_title())
                             ));
                         } else { ?>
                             <img src="<?php echo get_template_directory_uri() . '/assets/images/banner-demo-image-856x460.jpg' ?>"
@@ -38,9 +40,25 @@
                     </div>
                     <div class="notice-text">
                         <p class="mb-0"><?php the_content(); ?></p>
+
+                        <?php
+                        $pdf_file = get_field('upload_pdf');
+                        if (!empty($pdf_file)) { ?>
+                            <a href="<?php echo esc_url($pdf_file); ?>" class="btn bg-text-info bg-info" download><i
+                                    class="fa-solid fa-file-pdf"></i> নোটিশের
+                                পিডিএফ ডাউনলোড করুন</a>
+                        <?php } else { ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <p class="mb-0"><i class="fa-solid fa-triangle-exclamation me-2"></i>নোটিশের কোন
+                                    পিডিএফ ফাইল পাওয়া
+                                    যায়নি।</p>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php } ?>
+
                     </div>
 
-            <?php
+                    <?php
                 endwhile;
             endif;
             ?>
@@ -82,11 +100,11 @@
 
                 // WP_Query এর আর্গুমেন্ট
                 $args = array(
-                    'post_type'      => $current_post_type, // অথবা সরাসরি 'my_custom_post'
+                    'post_type' => $current_post_type, // অথবা সরাসরি 'my_custom_post'
                     'posts_per_page' => 4,
-                    'post__not_in'   => array($current_post_id),
-                    'orderby'        => 'date',
-                    'order'          => 'DESC',
+                    'post__not_in' => array($current_post_id),
+                    'orderby' => 'date',
+                    'order' => 'DESC',
                 );
 
                 // যদি টার্ম থাকে, ট্যাক্সোনমি কুয়েরি যোগ করুন
@@ -94,8 +112,8 @@
                     $args['tax_query'] = array(
                         array(
                             'taxonomy' => 'my_custom_taxonomy',
-                            'field'    => 'term_id',
-                            'terms'    => $term_ids,
+                            'field' => 'term_id',
+                            'terms' => $term_ids,
                         ),
                     );
                 }
@@ -107,7 +125,7 @@
                         $related_query->the_post();
                         $thumb_id = get_post_thumbnail_id(get_the_ID());
                         $alt_text = get_post_meta($thumb_id, '_wp_attachment_image_alt', true);
-                ?>
+                        ?>
                         <!-- per item start  -->
                         <div class="col-md-3 col-12 mb-md-0 mb-3 d-flex align-items-stretch">
                             <div class="border-bottom border-dark shadow position-relative">
@@ -117,7 +135,7 @@
                                         if (has_post_thumbnail()) {
                                             the_post_thumbnail('custom-thumb-410x231', array(
                                                 'class' => 'img-fluid',
-                                                'alt'   => $alt_text ? esc_attr($alt_text) : esc_attr(get_the_title())
+                                                'alt' => $alt_text ? esc_attr($alt_text) : esc_attr(get_the_title())
                                             ));
                                         } else { ?>
                                             <img src="<?php echo get_template_directory_uri() . '/assets/images/banner-demo-image-856x460.jpg' ?>"
@@ -179,7 +197,7 @@
                             </div>
                         </div>
                         <!-- per item end  -->
-                <?php
+                        <?php
                     }
                     wp_reset_postdata();
                 } else {

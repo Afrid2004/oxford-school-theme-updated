@@ -61,13 +61,13 @@ get_header();
                         while ($committee->have_posts()): $committee->the_post();
                         ?>
                             <div class="col-lg-6 mb-4">
-                                <div class="cmt-card rounded-2">
+                                <div class="cmt-card rounded-3 bg-white">
                                     <div class="pt-3 pb-1 px-3 committee-img">
-                                        <?php the_post_thumbnail('large', array('class' => 'img-fluid')); ?>
+                                        <?php the_post_thumbnail('large', array('class' => 'img-fluid rounded-2 border')); ?>
                                     </div>
                                     <div class="py-2 px-3">
-                                        <p class="mb-0 fw-bold fs-5"> <?php the_title(); ?> </p>
-                                        <p class="mb-0"> <?php echo get_field('position'); ?> </p>
+                                        <p class="mb-2 fw-bold fs-5"> <?php the_title(); ?> </p>
+                                        <p class="mb-2">পদবিঃ <?php echo get_field('position'); ?> </p>
                                         <p class="mb-0"> মোবাইলঃ <?php echo get_field('mobile_number'); ?> </p>
                                     </div>
                                 </div>

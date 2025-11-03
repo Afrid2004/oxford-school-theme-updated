@@ -17,9 +17,13 @@
                     <?php
                         $spechOfHead = new WP_Query(array(
                             'post_type'         =>  'speech_of_headmaster',
-                            'posts_per_page'    => 1,
-                            'order'             => 'DESC'
+                            'posts_per_page'    =>  1,
+                            'order'             => 'DESC',
+                            'no_found_rows'     =>  true,
+                            'update_post_meta_cache'    => false,
+                            'update_post_term_cache'    => false
                         ));
+
                         while ($spechOfHead->have_posts()): $spechOfHead->the_post();
                     ?>
                         <div class="col-lg-4 mb-3 px-0">
@@ -36,14 +40,14 @@
                                     
                                 </div>
                                 <div>
-                                    <p class="mb-0 fs-4 text-info"><?php echo get_field('headmaster_name') ?></p>
-                                    <p class="mb-0">
+                                    <p class="mb-2 fs-5 fw-bold"><?php echo the_title(); ?></p>
+                                    <p class="mb-2">
                                         প্রধান শিক্ষক, <?php
                                         $school_name =  get_theme_mod('name-of-school', 'জিয়া ভাই উচ্চ বিদ্যালয়');
                                         echo $school_name;
                                         ?>।
                                     </p>
-                                    <p class="mb-0">মোবাইলঃ <?php echo get_field('head_master_mobile_number') ?></p>
+                                    <p class="mb-0">মোবাইলঃ <?php echo get_field('mobile_number') ?></p>
                                 </div>
                             
                         </div>

@@ -22,20 +22,21 @@
 
                     <!-- teachers item -->
                     <div class="col-md-3 col-6 mb-md-4 mb-2">
-                        <div class="card">
-                            <div class="card-header">
+                        <div class="cmt-card rounded-3 bg-white">
+                            <div class="pt-2 pb-1 px-2 committee-img">
                                 <?php
                                 if (has_post_thumbnail()) {
-                                    the_post_thumbnail('teacher-photo-image-290x350', array('class' => 'img-fluid'));
+                                    the_post_thumbnail('teacher-photo-image-290x350', array('class' => 'img-fluid rounded-2 border'));
                                 } else { ?>
                                     <img src="https://picsum.photos/290/350" alt="Teacher" class="img-fluid">
                                 <?php }
                                 ?>
 
                             </div>
-                            <div class="card-body">
-                                <h6> <?php the_title(); ?> </h6>
-                                <h6> পদবি : সহকারী শিক্ষক </h6>
+                            <div class="py-1 px-2">
+                                <p class="fw-bold fs-6 mb-2"> <?php the_title(); ?> </p>
+                                <p class="mb-1"> পদবিঃ সহকারী শিক্ষক </p>
+                                <p class="mb-0"> বিষয়ঃ বাংলা </p>
                             </div>
                         </div>
                     </div>
