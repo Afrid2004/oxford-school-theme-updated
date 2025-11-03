@@ -1,7 +1,7 @@
 <?php
 get_header();
 /**
- * Template Name: অর্জন ও সাফল্য
+ * Template Name: সব নোটিশ
  */
 ?>
 
@@ -10,20 +10,16 @@ get_header();
     <div class="row pb-5">
         <div class="col-lg-8 mb-3">
             <div class="sec-title bg-info text-center py-1 text-light mb-2">
-                <p class="mb-0">প্রতিষ্ঠানের অর্জন ও সাফল্য</p>
+                <p class="mb-0">সব নোটিশ</p>
             </div>
 
             <div class="table-responsive">
-                <table class="table table-striped table-bordered table-white">
+                <table class="table table-striped table-bordered table-white notice-table">
                     <thead>
                         <tr>
                             <th>ক্রমিক নং</th>
-                            <th>সাফল্যের বিষয়</th>
-                            <th>ক্ষেত্র</th>
-                            <th>শিক্ষার্থীর নাম/দল</th>
-                            <th>অর্জনের তারিখ</th>
-                            <th>স্তর/পর্যায়</th>
-                            <th>ফলাফল/পুরস্কার</th>
+                            <th>শিরোনাম</th>
+                            <th>প্রকাশের তারিখ</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,35 +30,42 @@ get_header();
                             $paged = get_query_var('page');
                         }
 
-                        $dynamicTable = new WP_Query(array(
-                            'post_type' => 'achieve_and_success',
-                            'posts_per_page' => 5,
+                        $allNotices = new WP_Query(array(
+                            'post_type' => 'notice',
+                            'posts_per_page' => 10,
                             'order' => 'DESC',
+                            'fields' => 'ids',
+                            'update_post_meta_cache' => false,
+                            'update_post_term_cache' => false,
                             'paged' => $paged
                         ));
 
-                        $totalPosts = $dynamicTable->found_posts;
-                        $counter = $totalPosts - (($paged - 1) * 5);
+                        $totalPosts = $allNotices->found_posts;
+                        $counter = $totalPosts - (($paged - 1) * 10);
 
-                        if ($dynamicTable->have_posts()):
-                            while ($dynamicTable->have_posts()):
-                                $dynamicTable->the_post();
+                        if ($allNotices->have_posts()):
+                            while ($allNotices->have_posts()):
+                                $allNotices->the_post();
 
-                                $achieve_and_success_field = get_field('achieve_and_success_field');
-                                $student_name_team = get_field('student_name_team');
-                                $achieve_date = get_field('achieve_date');
-                                $level_stage = get_field('level_stage');
-                                $result_award = get_field('result_award');
+                                $pdf_file = get_field('upload_pdf');
+
                                 ?>
                                 <tr>
                                     <td><?php echo convert_to_bangla($counter); ?></td>
-                                    <td><?php the_title(); ?></td>
-                                    <td><?php echo !empty($achieve_and_success_field) ? $achieve_and_success_field : '-'; ?>
+                                    <td class="notice-table-title">
+                                        <a href="<?php echo esc_url(the_permalink()); ?>" class="text-dark">
+                                            <?php echo esc_html(the_title()); ?>
+                                        </a>
                                     </td>
-                                    <td><?php echo !empty($student_name_team) ? $student_name_team : '-'; ?></td>
-                                    <td><?php echo !empty($achieve_date) ? $achieve_date : '-'; ?></td>
-                                    <td><?php echo !empty($level_stage) ? $level_stage : '-'; ?></td>
-                                    <td><?php echo !empty($result_award) ? $result_award : '-'; ?></td>
+                                    <td>
+                                        <p class="mb-0">
+                                            <?php echo convert_to_bangla(get_the_time('j F Y')); ?>
+                                        </p>
+                                        <small class="mb-0">
+                                            <?php echo convert_to_bangla(get_the_time('g:i a')); ?>
+                                        </small>
+
+                                    </td>
                                 </tr>
                                 <?php
                                 $counter--;
@@ -82,7 +85,7 @@ get_header();
                 'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
                 'format' => '?paged=%#%',
                 'current' => max(1, $paged),
-                'total' => $dynamicTable->max_num_pages,
+                'total' => $allNotices->max_num_pages,
                 'type' => 'array',
                 'prev_text' => '&laquo;',
                 'next_text' => '&raquo;',
@@ -105,8 +108,9 @@ get_header();
         </div>
 
         <div class="col-lg-4">
-            <div class="top-content">
-                <?php get_template_part('parts/notice'); ?>
+            <div class="position-sticky" style="top:1rem;">
+                <!-- নিউজ ও ইভেন্ট -->
+                <?php get_template_part('parts/news-and-events'); ?>
             </div>
         </div>
     </div>

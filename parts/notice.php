@@ -1,5 +1,7 @@
-<div class="top-title bg-info text-center text-light py-1 mb-2">
-    <p class="mb-0">নোটিশ</p>
+<div class="top-title mb-2">
+    <p class="mb-0">
+        <a href="<?php echo the_permalink(252); ?>" class="bg-info text-center text-light py-1 d-block">নোটিশ</a>
+    </p>
 </div>
 <ul class="list-group list-group-two list-group-three">
     <?php
@@ -29,4 +31,11 @@
         <?php }
     }
     ?>
+    <li class="list-group-item position-sticky border" style="bottom : 0px;">
+        <h5 class="mb-0">
+            <a href="<?php echo the_permalink(252); ?>"
+                class="d-flex justify-content-between align-items-center text-info">সব নোটিশ দেখুন <i
+                    class="fa-solid fa-arrow-right notice-arrow"></i></a>
+        </h5>
+    </li>
 </ul>

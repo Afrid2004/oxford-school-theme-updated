@@ -38,7 +38,7 @@
                     $alt_text = get_post_meta($thumb_id, '_wp_attachment_image_alt', true);
                     if (has_post_thumbnail()) {
                         the_post_thumbnail('banner-image-size-856x460', array(
-                            'class' => 'img-fluid',
+                            'class' => 'img-fluid w-100',
                             'alt' => $alt_text ? esc_attr($alt_text) : esc_attr(get_the_title())
                         ));
                     } else { ?>

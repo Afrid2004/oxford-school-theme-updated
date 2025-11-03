@@ -274,13 +274,17 @@ body {
     color: white !important;
 }
 
+.list-group-item:hover .text-info {
+    color: white !important;
+}
+
 .list-group-two {
     max-height: 260px;
     overflow: auto;
 }
 
 .list-group-three {
-    max-height: 350px !important;
+    max-height: 420px !important;
 }
 
 .list-group-two::-webkit-scrollbar {
@@ -294,6 +298,20 @@ body {
 
 .list-group-two::-webkit-scrollbar-track {
     background-color: rgb(235, 235, 235);
+}
+
+.notice-arrow {
+    animation: left-right 1s linear infinite alternate;
+}
+
+@keyframes left-right {
+    0% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(2px);
+    }
 }
 
 .btn-info {
@@ -397,6 +415,13 @@ body .card-item {
 th,
 td {
     text-align: center;
+    vertical-align: middle;
+}
+
+
+
+.notice-table-title:hover a {
+    color: #15aecc !important;
 }
 
 .table-responsive::-webkit-scrollbar {
