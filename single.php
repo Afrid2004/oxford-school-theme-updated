@@ -33,6 +33,7 @@
                         </span>
 
                     </div>
+
                     <div class="page-content border-bottom border-1 border-dark-subtile mb-3">
                         <h1><?php the_title(); ?></h1>
                         <small class="text-secondary">প্রকাশ :
@@ -40,7 +41,6 @@
                     </div>
                     <div class="notice-text">
                         <p class="mb-0"><?php the_content(); ?></p>
-
                     </div>
 
                     <?php

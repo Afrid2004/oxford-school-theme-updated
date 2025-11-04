@@ -88,5 +88,12 @@ if (file_exists(get_template_directory() . '/includes/post-type/governing-post-t
     include_once('includes/post-type/mission-and-vision-post-type.php');
 }
 
+//for class routine
+if (file_exists(get_template_directory() . '/includes/post-type/class-routine-post-type.php')) {
+    include_once('includes/post-type/class-routine-post-type.php');
+}
 
-
+//for class routine
+if (file_exists(get_template_directory() . '/includes/post-type/exam-routine-post-type.php')) {
+    include_once('includes/post-type/exam-routine-post-type.php');
+}

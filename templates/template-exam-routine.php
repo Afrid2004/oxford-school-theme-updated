@@ -1,16 +1,18 @@
 <?php
-get_header();
 /**
- * Template Name: সব নোটিশ
+ * Template Name: পরীক্ষার রুটিন
  */
+get_header();
+
 ?>
 
-<div class="container bg-light pt-3">
+<!-- body start -->
+<div class="container bg-light py-3 pb-3">
     <?php get_template_part('/parts/breadcumbs'); ?>
     <div class="row pb-5">
-        <div class="col-lg-8 mb-3">
+        <div class="col-md-8">
             <div class="sec-title bg-info text-center py-1 text-light mb-2">
-                <p class="mb-0">সব নোটিশ</p>
+                <p class="mb-0">সব রুটিন</p>
             </div>
 
             <div class="table-responsive">
@@ -18,7 +20,7 @@ get_header();
                     <thead>
                         <tr>
                             <th>ক্রমিক নং</th>
-                            <th>শিরোনাম</th>
+                            <th>শ্রেণি</th>
                             <th>প্রকাশের তারিখ</th>
                         </tr>
                     </thead>
@@ -30,24 +32,23 @@ get_header();
                             $paged = get_query_var('page');
                         }
 
-                        $allNotices = new WP_Query(array(
-                            'post_type' => 'notice',
+                        $allRoutine = new WP_Query(array(
+                            'post_type' => 'exam_routine',
                             'posts_per_page' => 10,
                             'order' => 'DESC',
-                            'fields' => 'ids',
                             'update_post_meta_cache' => false,
                             'update_post_term_cache' => false,
                             'paged' => $paged
                         ));
 
-                        $totalPosts = $allNotices->found_posts;
+                        $totalPosts = $allRoutine->found_posts;
                         $counter = $totalPosts - (($paged - 1) * 10);
 
-                        if ($allNotices->have_posts()):
-                            while ($allNotices->have_posts()):
-                                $allNotices->the_post();
+                        if ($allRoutine->have_posts()):
+                            while ($allRoutine->have_posts()):
+                                $allRoutine->the_post();
 
-                                $pdf_file = get_field('upload_pdf');
+                                $pdf_file = get_field('exam_routine_pdf');
 
                                 ?>
                                 <tr>
@@ -64,7 +65,6 @@ get_header();
                                         <small class="mb-0">
                                             <?php echo convert_to_bangla(get_the_time('g:i a')); ?>
                                         </small>
-
                                     </td>
                                 </tr>
                                 <?php
@@ -85,7 +85,7 @@ get_header();
                 'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
                 'format' => '?paged=%#%',
                 'current' => max(1, $paged),
-                'total' => $allNotices->max_num_pages,
+                'total' => $allRoutine->max_num_pages,
                 'type' => 'array',
                 'prev_text' => '&laquo;',
                 'next_text' => '&raquo;',
@@ -106,14 +106,13 @@ get_header();
 
             <?php wp_reset_postdata(); ?>
         </div>
-
-        <div class="col-lg-4">
-            <div class="position-sticky" style="top:1rem;">
-                <!-- নিউজ ও ইভেন্ট -->
-                <?php get_template_part('parts/news-and-events'); ?>
+        <div class="col-md-4">
+            <div class="top-content position-sticky" style="top : 1rem;">
+                <?php get_template_part('parts/notice') ?>
             </div>
         </div>
     </div>
 </div>
+<!-- body end -->
 
 <?php get_footer(); ?>
