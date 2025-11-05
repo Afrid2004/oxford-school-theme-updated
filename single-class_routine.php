@@ -21,9 +21,6 @@
                         $pdf = get_field('class_routine_pdf');
 
                         if ($pdf) { ?>
-                            <a href="<?php the_permalink(21); ?>" class="text-white btn bg-info mb-3"><i
-                                    class="fa-regular fa-calendar-days"></i> সকল শ্রেণির রুটিন দেখুন
-                            </a>
                             <iframe class="single-iframe" src="<?php echo esc_url($pdf) ?>?inline=1" frameborder="0"
                                 style="width:100%;height:500px;"></iframe>
                         <?php } else { ?>
@@ -31,9 +28,6 @@
                                 <p class="mb-0"><i class="fa-solid fa-triangle-exclamation"></i> কোন রুটিন পাওয়া যায়নি।</p>
 
                             </div>
-                            <a href="<?php the_permalink(21); ?>" class="text-white btn bg-info"><i
-                                    class="fa-regular fa-calendar-days"></i> সকল শ্রেণির রুটিন দেখুন
-                            </a>
                         <?php }
                         ?>
 
@@ -46,6 +40,57 @@
         </div>
         <div class="col-md-4">
             <div class="top-content position-sticky" style="top : 1rem;">
+                <div class="routine-list mb-md-4 mb-3">
+                    <div class="top-title mb-2">
+                        <p class="mb-0">
+                            <a href="<?php echo the_permalink(252); ?>"
+                                class="bg-info text-center text-light py-1 d-block">ক্লাস রুটিন</a>
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-two list-group-three rounded-0">
+                        <?php
+                        $currentPostId = 0;
+                        if (is_single()) {
+                            $currentPostId = get_the_ID();
+                        }
+                        $routineList = get_posts(
+                            array(
+                                'post_type' => 'class_routine',
+                                'order' => 'DESC',
+                                'posts_per_page' => 10,
+                                'fields' => 'ids',
+                                'post__not_in' => array($currentPostId),
+                                'no_found_rows' => true,
+                                'update_post_meta_cache' => false,
+                                'update_post_term_cache' => false,
+                            )
+                        );
+
+                        if ($routineList) {
+                            foreach ($routineList as $routineli) { ?>
+
+                                <li class="list-group-item d-flex flex-column">
+                                    <h5>
+                                        <a href="<?php echo esc_url(get_permalink($routineli)); ?>" class="text-dark">
+                                            <?php echo esc_html(get_the_title($routineli)); ?>
+                                        </a>
+                                    </h5>
+                                    <small
+                                        class="text-secondary"><?php echo convert_to_bangla(get_the_time('g:i a, j F Y', $routineli)); ?></small>
+                                </li>
+                            <?php }
+                        }
+                        ?>
+                        <li class="list-group-item position-sticky border" style="bottom : 0px;">
+                            <p class="mb-0">
+                                <a href="<?php the_permalink(21); ?>"
+                                    class="d-flex justify-content-between align-items-center text-info">সকল শ্রেণির
+                                    রুটিন দেখুন <i class="fa-solid fa-arrow-right notice-arrow"></i>
+                                </a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
                 <?php get_template_part('parts/notice') ?>
             </div>
         </div>

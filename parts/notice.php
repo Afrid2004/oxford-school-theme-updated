@@ -3,14 +3,19 @@
         <a href="<?php echo the_permalink(252); ?>" class="bg-info text-center text-light py-1 d-block">নোটিশ</a>
     </p>
 </div>
-<ul class="list-group list-group-two list-group-three">
+<ul class="list-group list-group-two list-group-three rounded-0">
     <?php
+    $currentPostID = 0;
+    if (is_single()) {
+        $currentPostID = get_the_ID();
+    }
     $notices = get_posts(
         array(
             'post_type' => 'notice',
             'order' => 'DESC',
             'posts_per_page' => 10,
             'fields' => 'ids',
+            'post__not_in' => array($currentPostID),
             'no_found_rows' => true,
             'update_post_meta_cache' => false,
             'update_post_term_cache' => false,
@@ -32,10 +37,10 @@
     }
     ?>
     <li class="list-group-item position-sticky border" style="bottom : 0px;">
-        <h5 class="mb-0">
+        <p class="mb-0">
             <a href="<?php echo the_permalink(252); ?>"
                 class="d-flex justify-content-between align-items-center text-info">সব নোটিশ দেখুন <i
                     class="fa-solid fa-arrow-right notice-arrow"></i></a>
-        </h5>
+        </p>
     </li>
 </ul>
