@@ -116,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            <div class="header-bottom">
+            <div class="header-bottom pt-2 pt-md-0">
                 <nav class="navbar navbar-expand-lg sticky-top menubar-bg-color py-0">
                     <button class="navbar-toggler d-flex d-lg-none justify-content-between align-items-center w-100"
                         type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText"

@@ -6,7 +6,6 @@
     <div class="row pb-5">
         <div class="col-md-8">
             <?php
-
             if (have_posts()):
                 while (have_posts()):
                     the_post();
@@ -19,19 +18,19 @@
                     </div>
                     <div class="routine-content">
                         <?php
-                        $pdf = get_field('exam_routine_pdf');
+                        $pdf = get_field('class_routine_pdf');
 
                         if ($pdf) { ?>
                             <iframe class="single-iframe" src="<?php echo esc_url($pdf) ?>?inline=1" frameborder="0"
                                 style="width:100%;height:500px;"></iframe>
-                        <?php } else { ?>
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <p class="mb-0"><i class="fa-solid fa-triangle-exclamation"></i> কোন পরীক্ষার রুটিন পাওয়া
-                                    যায়নি।</p>
+                        <?php }?>
 
+                        <div class="book-list">
+                            <h5 class="mb-3">বইয়ের তালিকাঃ</h5>
+                            <div class="list">
+                                <?php the_content(); ?>
                             </div>
-                        <?php }
-                        ?>
+                        </div>
 
                     </div>
 
@@ -45,8 +44,8 @@
                 <div class="routine-list mb-md-4 mb-3">
                     <div class="top-title mb-2">
                         <p class="mb-0">
-                            <a href="<?php echo the_permalink(252); ?>"
-                                class="bg-info text-center text-light py-1 d-block">পরীক্ষার রুটিন</a>
+                            <a href="<?php echo the_permalink(23); ?>"
+                                class="bg-info text-center text-light py-1 d-block">বইয়ের তালিকা</a>
                         </p>
                     </div>
                     <ul class="list-group list-group-two list-group-three rounded-0">
@@ -55,9 +54,9 @@
                         if (is_single()) {
                             $currentPostId = get_the_ID();
                         }
-                        $examList = get_posts(
+                        $routineList = get_posts(
                             array(
-                                'post_type' => 'exam_routine',
+                                'post_type' => 'academic_subject',
                                 'order' => 'DESC',
                                 'posts_per_page' => 10,
                                 'fields' => 'ids',
@@ -68,26 +67,26 @@
                             )
                         );
 
-                        if ($examList) {
-                            foreach ($examList as $examLi) { ?>
+                        if ($routineList) {
+                            foreach ($routineList as $routineli) { ?>
 
                                 <li class="list-group-item d-flex flex-column">
                                     <h5>
-                                        <a href="<?php echo esc_url(get_permalink($examLi)); ?>" class="text-dark">
-                                            <?php echo esc_html(get_the_title($examLi)); ?>
+                                        <a href="<?php echo esc_url(get_permalink($routineli)); ?>" class="text-dark">
+                                            <?php echo esc_html(get_the_title($routineli)); ?>
                                         </a>
                                     </h5>
                                     <small
-                                        class="text-secondary"><?php echo convert_to_bangla(get_the_time('g:i a, j F Y', $examLi)); ?></small>
+                                        class="text-secondary"><?php echo convert_to_bangla(get_the_time('g:i a, j F Y', $routineli)); ?></small>
                                 </li>
                             <?php }
                         }
                         ?>
                         <li class="list-group-item position-sticky border" style="bottom : 0px;">
                             <p class="mb-0">
-                                <a href="<?php the_permalink(22); ?>"
+                                <a href="<?php the_permalink(23); ?>"
                                     class="d-flex justify-content-between align-items-center text-info">সকল শ্রেণির
-                                    পরীক্ষার রুটিন দেখুন <i class="fa-solid fa-arrow-right notice-arrow"></i>
+                                    বইয়ের তালিকা দেখুন <i class="fa-solid fa-arrow-right notice-arrow"></i>
                                 </a>
                             </p>
                         </li>

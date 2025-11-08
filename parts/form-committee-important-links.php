@@ -104,7 +104,7 @@
                     </div>
 
 
-                    <ul class="list-group list-group-two">
+                    <ul class="list-group list-group-two rounded-0">
                         <?php
                         $importantLink = new WP_Query(array(
                             'post_type'         =>  'important_link',
@@ -113,12 +113,12 @@
                         while ($importantLink->have_posts()): $importantLink->the_post();
                         ?>
 
-                            <li>
+                            <li class="list-group-item">
                                 <?php
                                 $link = get_field('important_link');
                                 if ($link):
                                 ?>
-                                    <a href="<?php echo esc_url($link); ?>" class="list-group-item" target="_blank"><?php the_title(); ?></a>
+                                    <a href="<?php echo esc_url($link); ?>"  target="_blank" class="text-dark d-flex align-items-center gap-2"><i class="fa-solid fa-angles-right" style="font-size: .8rem;"></i> <?php the_title(); ?></a>
                                 <?php
                                 endif;
                                 ?>

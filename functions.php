@@ -97,3 +97,23 @@ if (file_exists(get_template_directory() . '/includes/post-type/class-routine-po
 if (file_exists(get_template_directory() . '/includes/post-type/exam-routine-post-type.php')) {
     include_once('includes/post-type/exam-routine-post-type.php');
 }
+
+//for academic subject
+if (file_exists(get_template_directory() . '/includes/post-type/academic-subject-post-type.php')) {
+    include_once('includes/post-type/academic-subject-post-type.php');
+}
+
+//for curriculum
+if (file_exists(get_template_directory() . '/includes/post-type/curriculum-post-type.php')) {
+    include_once('includes/post-type/curriculum-post-type.php');
+}
+
+//for holiday list
+if (file_exists(get_template_directory() . '/includes/post-type/holiday-list-post-type.php')) {
+    include_once('includes/post-type/holiday-list-post-type.php');
+}
+
+//for publications
+if (file_exists(get_template_directory() . '/includes/post-type/megazine-post-type.php')) {
+    include_once('includes/post-type/megazine-post-type.php');
+}

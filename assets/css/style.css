@@ -235,7 +235,7 @@ body {
 .carousel-3 .carousel-control-next-icon i {
     font-size: 1.3rem;
     color: black !important;
-    margin-top: 2.5rem;
+    margin-top: 0rem;
 }
 
 .carousel-1 .carousel-control-prev-icon i,
@@ -254,7 +254,8 @@ body {
 }
 
 .carousel-3 .carousel-indicators {
-    bottom: -3.2rem;
+    bottom: 0rem;
+    margin-bottom: .5rem;
 }
 
 .notice-content p {
@@ -281,8 +282,74 @@ body {
 }
 
 .list-group-two {
-    max-height: 260px;
+    max-height: 470px;
     overflow: auto;
+}
+
+
+.book-list ul,
+.book-list ol {
+    padding-left: 0;
+    list-style: none;
+}
+
+.book-list .list>p,
+.book-list .list>ul li p,
+.book-list .list>ol li p {
+    padding: .5rem 1rem;
+    margin-bottom: 0;
+    background-color: white;
+}
+
+.book-list .list #wpdevar_comment_1 {
+    padding-top: 2rem !important;
+}
+
+.book-list .list p,
+.book-list .list>ul li p,
+.book-list .list>ol li p {
+    border: 1px solid #dee2e6;
+}
+
+.book-list .list>p:nth-child(even),
+.book-list .list>ul li:nth-child(even) p,
+.book-list .list>ol li:nth-child(even) p {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-left: 1px solid #dee2e6;
+    border-bottom: none;
+    border-top: none;
+    border-right: 1px solid #dee2e6;
+}
+
+.book-list .list>p:last-of-type,
+.book-list .list>ul li:last-of-type p,
+.book-list .list>ol li:last-of-type p {
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
+.custom-list ul li,
+.custom-list ol li {
+    list-style-type: initial;
+}
+
+.book-list .list {
+    margin-bottom: 2rem;
+}
+
+.mg-shadow {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.megzine-img {
+    aspect-ratio: 3/3.5;
+}
+
+.school-megazine .info-title {
+    width: fit-content;
+}
+
+.btn-info {
+    border: none !important;
 }
 
 .list-group-three {

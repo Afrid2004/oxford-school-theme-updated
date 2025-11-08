@@ -39,8 +39,20 @@
                         <small class="text-secondary">প্রকাশ :
                             <?php echo convert_to_bangla(get_the_time('g:i a, j F Y')); ?></small>
                     </div>
-                    <div class="notice-text">
-                        <p class="mb-0"><?php the_content(); ?></p>
+                    <div class="notice-text  custom-list">
+                        <p class="mb-0">
+                            <?php 
+                            
+                                the_content(); 
+
+                                $megazinePdf = get_field('megazine_pdf');
+
+                                if(!empty($megazinePdf)){?>
+                                    <iframe class="single-iframe" src="<?php echo esc_url($megazinePdf) ?>?inline=1" frameborder="0"></iframe>
+                                <?php
+                                }
+                            ?>
+                        </p>
                     </div>
 
                     <?php
