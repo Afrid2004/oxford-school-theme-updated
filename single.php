@@ -46,9 +46,14 @@
                                 the_content(); 
 
                                 $megazinePdf = get_field('megazine_pdf');
+                                $reportPdf = get_field('anual_report_pdf');
 
                                 if(!empty($megazinePdf)){?>
                                     <iframe class="single-iframe" src="<?php echo esc_url($megazinePdf) ?>?inline=1" frameborder="0"></iframe>
+                                <?php
+                                }
+                                if(!empty($reportPdf)){?>
+                                    <iframe class="single-iframe" src="<?php echo esc_url($reportPdf) ?>?inline=1" frameborder="0"></iframe>
                                 <?php
                                 }
                             ?>

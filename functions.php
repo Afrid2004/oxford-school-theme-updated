@@ -113,7 +113,21 @@ if (file_exists(get_template_directory() . '/includes/post-type/holiday-list-pos
     include_once('includes/post-type/holiday-list-post-type.php');
 }
 
-//for publications
+//for megazine
 if (file_exists(get_template_directory() . '/includes/post-type/megazine-post-type.php')) {
     include_once('includes/post-type/megazine-post-type.php');
 }
+
+//for anual report
+if (file_exists(get_template_directory() . '/includes/post-type/anual-report-post-type.php')) {
+    include_once('includes/post-type/anual-report-post-type.php');
+}
+
+
+
+function custom_add_query_vars($vars) {
+    $vars[] = 'magazine_paged';
+    $vars[] = 'report_paged';
+    return $vars;
+}
+add_filter('query_vars', 'custom_add_query_vars');

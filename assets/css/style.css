@@ -344,7 +344,8 @@ body {
     aspect-ratio: 3/3.5;
 }
 
-.school-megazine .info-title {
+.school-megazine .info-title,
+.anual-report .info-title {
     width: fit-content;
 }
 
