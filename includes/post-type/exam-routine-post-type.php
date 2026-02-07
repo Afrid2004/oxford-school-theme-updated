@@ -24,7 +24,7 @@ function exam_routine_post_type()
     'show_ui' => true,
     'capability_type' => 'post',
     'hierarchical' => true,
-    'supports' => array('title', 'custom-fields'),
+    'supports' => array('title',  'custom-fields'),
   ));
 }
 add_action('init', 'exam_routine_post_type');
